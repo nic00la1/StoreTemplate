@@ -111,5 +111,32 @@ class Store: ObservableObject {
                 print("could not find products")
             }
         }
+        
+        self.purchasedSubscriptions = purchasedSubcriptions
+        self.purchasedLifetime = purchasedLifetime
+        
+        subscriptionGroupStatus = try? await subscriptions.first?.subscription?.status.first?.state
+    }
+
+    @MainActor
+    func requestProducts() async {
+        do {
+            let storeProducts = try await Product.products(for: productIds.keys)
+            
+            var newLifetime: [Product] = []
+            var newSubscription: [Product] = []
+            
+            for product in storeProducts {
+                switch product.type {
+                case .nonConsumable:
+                    newLifetime.append(product)
+                case .autoRenewable:
+                    newSubscription.append(product)
+                default:
+                    print("Unkown product")
+                }
+            }
+            
+        }
     }
 }
