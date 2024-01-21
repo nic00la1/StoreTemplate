@@ -89,5 +89,27 @@ class Store: ObservableObject {
         }
     }
     
-    
+    @MainActor
+    func updateCustomerProductStatus() async {
+        var purchasedSubcriptions: [Product] = []
+        
+        for await result in Transaction.currentEntitlements {
+            do {
+                let transaction = try checkVerified(result)
+                
+                switch transaction.productType {
+                case .nonConsumable:
+                    purchasedLifetime = true
+                case .autoRenewable:
+                    if let subscription = subscriptions.first(where: { $0.id == transaction.productID}) {
+                        purchasedSubcriptions.append(subscription)
+                    }
+                default:
+                    break
+                }
+            } catch {
+                print("could not find products")
+            }
+        }
+    }
 }
