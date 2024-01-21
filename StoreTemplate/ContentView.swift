@@ -6,16 +6,26 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct ContentView: View {
+    @AppStorage("subscribed") private var subcribed : Bool = false
+    @State var lifetimePage: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        SubscriptionStoreView(groupID: "148C004B", visibleRelationships: .all) {
+            StoreContent()
+                .containerBackground(Color.cyan.gradient, for: .subscriptionStoreHeader)
         }
-        .padding()
+        .backgroundStyle(.clear)
+        .subscriptionStorePickerItemBackground(.thinMaterial)
+        .storeButton(.visible, for: .restorePurchases)
+        .sheet(isPresented: $lifetimePage) {
+            
+        }
+        Button("More Purchase Options", action: {
+            lifetimePage = true
+        })
     }
 }
 
