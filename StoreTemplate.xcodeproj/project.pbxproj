@@ -13,6 +13,7 @@
 		B3C1490A2B5D38AB00AF8879 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3C149092B5D38AB00AF8879 /* Preview Assets.xcassets */; };
 		B3C149112B5D38F400AF8879 /* SampleStore.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B3C149102B5D38F400AF8879 /* SampleStore.storekit */; };
 		B3C149152B5D3B6200AF8879 /* StoreContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C149142B5D3B6200AF8879 /* StoreContent.swift */; };
+		B3C149172B5D60D400AF8879 /* LifetimeStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C149162B5D60D400AF8879 /* LifetimeStoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		B3C149092B5D38AB00AF8879 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B3C149102B5D38F400AF8879 /* SampleStore.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = SampleStore.storekit; sourceTree = "<group>"; };
 		B3C149142B5D3B6200AF8879 /* StoreContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreContent.swift; sourceTree = "<group>"; };
+		B3C149162B5D60D400AF8879 /* LifetimeStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifetimeStoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				B3C149022B5D38AA00AF8879 /* StoreTemplateApp.swift */,
 				B3C149042B5D38AA00AF8879 /* ContentView.swift */,
+				B3C149162B5D60D400AF8879 /* LifetimeStoreView.swift */,
 				B3C149102B5D38F400AF8879 /* SampleStore.storekit */,
 				B3C149142B5D3B6200AF8879 /* StoreContent.swift */,
 				B3C149062B5D38AB00AF8879 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C149052B5D38AA00AF8879 /* ContentView.swift in Sources */,
+				B3C149172B5D60D400AF8879 /* LifetimeStoreView.swift in Sources */,
 				B3C149152B5D3B6200AF8879 /* StoreContent.swift in Sources */,
 				B3C149032B5D38AA00AF8879 /* StoreTemplateApp.swift in Sources */,
 			);

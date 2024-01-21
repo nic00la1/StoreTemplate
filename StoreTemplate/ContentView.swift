@@ -21,7 +21,9 @@ struct ContentView: View {
         .subscriptionStorePickerItemBackground(.thinMaterial)
         .storeButton(.visible, for: .restorePurchases)
         .sheet(isPresented: $lifetimePage) {
-            
+            LifetimeStoreView()
+                .presentationDetents([.height(250)])
+                .presentationBackground(.ultraThinMaterial)
         }
         Button("More Purchase Options", action: {
             lifetimePage = true

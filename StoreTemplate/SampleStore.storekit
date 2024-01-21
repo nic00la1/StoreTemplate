@@ -15,7 +15,7 @@
           "locale" : "en_US"
         }
       ],
-      "productID" : "livetime_subscription",
+      "productID" : "lifetime_subscription",
       "referenceName" : "Lifetime Subscription",
       "type" : "NonConsumable"
     }
