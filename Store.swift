@@ -169,4 +169,22 @@ class Store: ObservableObject {
             return false
         }
     }
+    
+    func purchase(_ product: Product) async throws -> Transaction? {
+        let result = try await product.purchase()
+        
+        switch result {
+        case .success(let verification):
+            let transaction = try checkVerified(verification)
+            
+            await updateCustomerProductStatus()
+            
+            await transaction.finish()
+            
+            return transaction
+        case .userCancelled, .pending:
+            return nil
+        default: return nil
+        }
+    }
 }
