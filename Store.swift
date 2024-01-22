@@ -136,7 +136,37 @@ class Store: ObservableObject {
                     print("Unkown product")
                 }
             }
-            
+            lifetime = sortByPrice(newLifetime)
+            subscriptions = sortByPrice(newSubscription)
+        }
+        catch {
+            print("Failed product request from the App Store server: \(error)")
+        }
+    }
+    
+    func sortByPrice(_ products: [Product]) -> [Product] {
+        products.sorted(by: {return $0.price < $1.price})
+    }
+    
+    func tier(for productId: String ) -> SubscriptionTier {
+        switch productId {
+        case "monthly_subscription":
+            return .monthly
+        case "yearly_subscription":
+            return .yearly
+        default:
+            return .none
+        }
+    }
+    
+    func isPurchased(_ product: Product) async throws -> Bool {
+        switch product.type {
+        case .nonConsumable:
+            return purchasedLifetime
+        case .autoRenewable:
+            return purchasedSubscriptions.contains(product)
+        default:
+            return false
         }
     }
 }
